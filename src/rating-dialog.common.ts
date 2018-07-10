@@ -1,28 +1,66 @@
-import { Observable } from 'tns-core-modules/data/observable';
-import * as app from 'tns-core-modules/application';
-import * as dialogs from 'tns-core-modules/ui/dialogs';
 
-export class Common extends Observable {
-  public message: string;
+export interface RatingDialogOption {
 
-  constructor() {
-    super();
-    this.message = Utils.SUCCESS_MSG();
-  }
+  icon?: string;
 
-  public greet() {
-    return "Hello, NS";
-  }
+  title: string;
+
+  positiveButtonText: string;
+
+  negativeButtonText?: string;
+
+  titleTextColor?: string;
+
+  backgroundColor?: string;
+
+  android?: AndroidRatingDialogOption;
+
+  iOS?: IOSRatingDialogOption;
 }
 
-export class Utils {
-  public static SUCCESS_MSG(): string {
-    let msg = `Your plugin is working on ${app.android ? 'Android' : 'iOS'}.`;
+export interface AndroidRatingDialogOption {
 
-    setTimeout(() => {
-      dialogs.alert(`${msg} For real. It's really working :)`).then(() => console.log(`Dialog closed.`));
-    }, 2000);
+  session?: number;
 
-    return msg;
-  }
+  threshold?: number;
+
+  positiveButtonTextColor?: string;
+
+  negativeButtonTextColor?: string;
+
+  ratingBarColor?: string;
+
+  ratingBarBackgroundColor?: string;
+
+  playstoreUrl?: string;
+
+  feedbackForm?: AndroidRatingDialogFeedbackForm;
+
+  onThresholdCleared?: (ratingDialog: any, rating: number, thresholdCleared: boolean) => void;
+
+  onThresholdFailed?: (ratingDialog: any, rating: number, thresholdCleared: boolean) => void;
+
+  onRatingChanged?: (rating: number, thresholdCleared: boolean) => void;
+
+  onRatingBarFormSumbit?: (feedback: string) => void;
+
+}
+
+export interface AndroidRatingDialogFeedbackForm {
+
+  formTitle: string;
+
+  formSubmitText: string;
+
+  cancelText: string;
+
+  feedbackFormHint?: string;
+
+  feedBackTextColor?: string;
+}
+
+
+export interface IOSRatingDialogOption {
+  title: string;
+
 }

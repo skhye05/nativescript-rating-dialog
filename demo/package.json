@@ -1,11 +1,14 @@
 {
   "nativescript": {
-    "id": "org.nativescript.demo"
+    "id": "org.nativescript.demo",
+    "tns-android": {
+      "version": "4.1.3"
+    }
   },
   "dependencies": {
+    "nativescript-rating-dialog": "../src",
     "nativescript-theme-core": "^1.0.4",
     "nativescript-unit-test-runner": "^0.3.4",
-    "nativescript-rating-dialog": "../src",
     "tns-core-modules": "^4.1.0"
   },
   "devDependencies": {
