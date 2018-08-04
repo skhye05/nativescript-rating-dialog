@@ -17,7 +17,6 @@ export class RatingDialog {
 
     public show(options: RatingDialogOption): void {
 
-
         const d = new com.eljo.skhye05.ratingdialog.RatingDialog.Builder(application.android.foregroundActivity)
             // Set Title
             .title(options.title)
