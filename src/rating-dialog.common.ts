@@ -5,17 +5,13 @@ export interface RatingDialogOption {
 
   title: string;
 
-  positiveButtonText: string;
-
-  negativeButtonText?: string;
-
-  titleTextColor?: string;
+  textColor?: string;
 
   backgroundColor?: string;
 
   android?: AndroidRatingDialogOption;
 
-  iOS?: IOSRatingDialogOption;
+  ios?: IOSRatingDialogOption;
 }
 
 export interface AndroidRatingDialogOption {
@@ -27,6 +23,10 @@ export interface AndroidRatingDialogOption {
   positiveButtonTextColor?: string;
 
   negativeButtonTextColor?: string;
+
+  positiveButtonText: string;
+
+  negativeButtonText?: string;
 
   ratingBarColor?: string;
 
@@ -59,8 +59,35 @@ export interface AndroidRatingDialogFeedbackForm {
   feedBackTextColor?: string;
 }
 
-
 export interface IOSRatingDialogOption {
-  title: string;
 
+  subtitle?: string;
+
+  onPositiveButtonColor?: string;
+
+  onNegativeButtonColor?: string;
+
+  onPositiveButtonText: string;
+
+  onNegativeButtonText: string;
+
+  positiveText?: string;
+
+  negativeText?: string;
+
+  textColor?: string;
+
+  emptyStarImage?: string;
+
+  fullStarImage?: string;
+
+  dismissButtonColor?: string;
+
+  itunesId?: string;
+
+  onPositiveRate?: (rating: number) => void;
+
+  onNegativeRate?: (rating: number) => void;
+
+  onDismiss?: () => void;
 }
