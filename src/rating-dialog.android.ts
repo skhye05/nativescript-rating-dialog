@@ -15,81 +15,81 @@ export class RatingDialog {
     constructor() {
     }
 
-    public show(option: RatingDialogOption): void {
+    public show(options: RatingDialogOption): void {
 
 
         const d = new com.eljo.skhye05.ratingdialog.RatingDialog.Builder(application.android.foregroundActivity)
             // Set Title
-            .title(option.title)
+            .title(options.title)
 
             // Set title text color if exist
-            .titleTextColor(option.titleTextColor ? new Color(option.titleTextColor).android : 0)
+            .titleTextColor(options.textColor ? new Color(options.textColor).android : 0)
 
             // Set positive button text if exist
-            .positiveButtonText(option.positiveButtonText ? option.positiveButtonText : null)
+            .positiveButtonText(options.android ? options.android.positiveButtonText ? options.android.positiveButtonText : null : null)
 
             // Set positive button text color if exist
-            .positiveButtonTextColor(option.android ? option.android.positiveButtonTextColor ? new Color(option.android.positiveButtonTextColor).android : 0 : 0)
+            .positiveButtonTextColor(options.android ? options.android.positiveButtonTextColor ? new Color(options.android.positiveButtonTextColor).android : 0 : 0)
 
             // Set negative button text if exist
-            .negativeButtonText(option.negativeButtonText ? option.negativeButtonText : null)
+            .negativeButtonText(options.android ? options.android.negativeButtonText ? options.android.negativeButtonText : null : null)
 
             // Set negative button text color if exist
-            .negativeButtonTextColor(option.android ? option.android.positiveButtonTextColor ? new Color(option.android.negativeButtonTextColor).android : 0 : 0)
+            .negativeButtonTextColor(options.android ? options.android.positiveButtonTextColor ? new Color(options.android.negativeButtonTextColor).android : 0 : 0)
 
             // Set Icon if exist
-            .icon(option.icon ? utils.ad.resources.getDrawableId(option.icon) : null)
+            .icon(options.icon ? utils.ad.resources.getDrawableId(options.icon) : null)
 
-            .threshold(option.android ? option.android.threshold ? option.android.threshold : 2 : 2)
+            .threshold(options.android ? options.android.threshold ? options.android.threshold : 2 : 2)
 
             // Set Session if exist
-            .session(option.android ? option.android.session ? option.android.session : 1 : 1)
+            .session(options.android ? options.android.session ? options.android.session : 1 : 1)
 
             // Set rating container background color if exist
-            .backgroundColor(option.backgroundColor ? new Color(option.backgroundColor).android : 0)
+            .backgroundColor(options.backgroundColor ? new Color(options.backgroundColor).android : 0)
 
             // Set rating selected color if exist
-            .ratingBarColor(option.android ? option.android.ratingBarColor ? new Color(option.android.ratingBarColor).android : 0 : 0)
+            .ratingBarColor(options.android ? options.android.ratingBarColor ? new Color(options.android.ratingBarColor).android : 0 : 0)
 
             // Set rating background color if exist
-            .ratingBarBackgroundColor(option.android ? option.android.ratingBarBackgroundColor ? new Color(option.android.ratingBarBackgroundColor).android : 0 : 0)
+            .ratingBarBackgroundColor(options.android ? options.android.ratingBarBackgroundColor ? new Color(options.android.ratingBarBackgroundColor).android : 0 : 0)
 
             // Set playstore link if exist
-            .playstoreUrl(option.android ? option.android.playstoreUrl ? option.android.playstoreUrl : "" : "")
+            .playstoreUrl(options.android ? options.android.playstoreUrl ? options.android.playstoreUrl : "" : "")
 
             // Set Form title
-            .formTitle(option.android ? option.android.feedbackForm ? option.android.feedbackForm.formTitle ? option.android.feedbackForm.formTitle : null : null : null)
+            .formTitle(options.android ? options.android.feedbackForm ? options.android.feedbackForm.formTitle ? options.android.feedbackForm.formTitle : null : null : null)
 
             // Set submit Button Text
-            .formSubmitText(option.android ? option.android.feedbackForm ? option.android.feedbackForm.formSubmitText ? option.android.feedbackForm.formSubmitText : null : null : null)
+            .formSubmitText(options.android ? options.android.feedbackForm ? options.android.feedbackForm.formSubmitText ? options.android.feedbackForm.formSubmitText : null : null : null)
 
             // Set Cancel Button Text
-            .formCancelText(option.android ? option.android.feedbackForm ? option.android.feedbackForm.feedBackTextColor ? option.android.feedbackForm.cancelText : null : null : null)
+            .formCancelText(options.android ? options.android.feedbackForm ? options.android.feedbackForm.feedBackTextColor ? options.android.feedbackForm.cancelText : null : null : null)
 
             // Set Feedback Text Color
-            .feedbackTextColor(option.android ? option.android.feedbackForm ? option.android.feedbackForm.feedBackTextColor ? new Color(option.android.feedbackForm.feedBackTextColor).android : 0 : 0 : 0)
+            .feedbackTextColor(options.android ? options.android.feedbackForm ? options.android.feedbackForm.feedBackTextColor ? new Color(options.android.feedbackForm.feedBackTextColor).android : 0 : 0 : 0)
 
             // Set Feedback Hitn Text if params exist
-            .formHint(option.android ? option.android.feedbackForm ? option.android.feedbackForm.feedbackFormHint ? option.android.feedbackForm.feedbackFormHint : null : null : null)
+            .formHint(options.android ? options.android.feedbackForm ? options.android.feedbackForm.feedbackFormHint ? options.android.feedbackForm.feedbackFormHint : null : null : null)
 
             // Set onThresholdCleared if exist
-            .onThresholdCleared(option.android ? (option.android.onThresholdCleared && typeof option.android.onThresholdCleared === 'function') ? new com.eljo.skhye05.ratingdialog.RatingDialog.Builder.RatingThresholdClearedListener({
-                onThresholdCleared: option.android.onThresholdCleared
+            .onThresholdCleared(options.android ? (options.android.onThresholdCleared && typeof options.android.onThresholdCleared === 'function') ? new com.eljo.skhye05.ratingdialog.RatingDialog.Builder.RatingThresholdClearedListener({
+                onThresholdCleared: options.android.onThresholdCleared
             }) : null : null)
 
             // Set onThresholdFailed if exist
-            .onThresholdFailed(option.android ? (option.android.onThresholdFailed && typeof option.android.onThresholdCleared === 'function') ? new com.eljo.skhye05.ratingdialog.RatingDialog.Builder.RatingThresholdFailedListener({
-                onThresholdFailed: option.android.onThresholdFailed
+            .onThresholdFailed(options.android ? (options.android.onThresholdFailed && typeof options.android.onThresholdCleared === 'function') ? new com.eljo.skhye05.ratingdialog.RatingDialog.Builder.RatingThresholdFailedListener({
+                onThresholdFailed: options.android.onThresholdFailed
             }) : null : null)
 
             // Set onRatingSelected if exist
-            .onRatingChanged(option.android ? (option.android.onRatingChanged && typeof option.android.onThresholdCleared === 'function') ? new com.eljo.skhye05.ratingdialog.RatingDialog.Builder.RatingDialogListener({
-                onRatingSelected: option.android.onRatingChanged
+            .onRatingChanged(options.android ? (options.android.onRatingChanged && typeof options.android.onThresholdCleared === 'function') ? new com.eljo.skhye05.ratingdialog.RatingDialog.Builder.RatingDialogListener({
+                onRatingSelected: options.android.onRatingChanged
             }) : null : null)
 
             // Set onFormSubmitted if exist
-            .onRatingBarFormSumbit(option.android ? (option.android.onRatingBarFormSumbit && typeof option.android.onThresholdCleared === 'function') ? new com.eljo.skhye05.ratingdialog.RatingDialog.Builder.RatingDialogFormListener({
-                onFormSubmitted: option.android.onRatingBarFormSumbit
+            .onRatingBarFormSumbit(options.android ? (options.android.onRatingBarFormSumbit && typeof options.android.onThresholdCleared === 'function') ? new com.eljo.skhye05.ratingdialog.RatingDialog.Builder.RatingDialogFormListener({
+                onFormSubmitted: options.android.onRatingBarFormSumbit
             }) : null : null)
 
             // Build Rating Dialog

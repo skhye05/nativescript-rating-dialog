@@ -1,6 +1,8 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page"
   xmlns:ui="nativescript-rating-dialog">
-  <StackLayout class="p-20">
-    <Button text="show" tap="{{ show }}"/>
-  </StackLayout>
+  <GridLayout>
+        <StackLayout class="p-20">
+          <Button text="show" tap="{{ show }}"/>
+        </StackLayout>
+  </GridLayout>
 </Page>

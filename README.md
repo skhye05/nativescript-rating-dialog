@@ -15,11 +15,24 @@ let ratingDialog = new RatingDialog();
 
 const option: RatingDialogOption = {
     title: "Title",
-    positiveButtonText: "Done",
-    negativeButtonText: "Cancel",
     android: {
+        positiveButtonText: "Done",
+        negativeButtonText: "Cancel",
         onThresholdCleared: (dialog, rating, thresholdCleared) => {
           console.log(rating);
+        }
+    },
+    ios: {
+        onPositiveButtonText: "Done",
+        onNegativeButtonText: "Send Feedback",
+        onPositiveRate: (rating) => {
+          console.log('Positive', rating);
+        },
+        onNegativeRate: (rating) => {
+          console.log('Negative', rating);
+        },
+        onDismiss: () => {
+          console.log('Dismiss');
         }
     }
 };
@@ -29,39 +42,37 @@ ratingDialog.show(option);
 
 ## API
 
-Describe your plugin methods and properties here. See [nativescript-feedback](https://github.com/EddyVerbruggen/nativescript-feedback) for example.
-
-## Rating Dialog Option
+### Rating Dialog Option
     
 | Property            | Type                        | Description                                      |
 | ------------------- | --------------------------- | ------------------------------------------------ |
 | icon                | `string`                    | Set icon (use app icon as default) `(optional)`. |
 | title               | `string`                    | Set title                                        |
-| positiveButtonText  | `string`                    | Set positive button text                         |
-| negativeButtonText  | `string`                    | Set negative button text `(optional)`              |
-| titleTextColor      | `string`                    | Set title text color `(optional)`                  |
-| backgroundColor     | `string`                    | Set background color `(optional)`                 |
+| textColor           | `string`                    | Set title text color `(optional)`                |
+| backgroundColor     | `string`                    | Set background color `(optional)`                |
 | android             | `AndroidRatingDialogOption` | Set android options `(optional)`                 |
-| iOS                 | `IOSRatingDialogOption`     | Set iOS options `(optional)`                     |
+| ios                 | `IOSRatingDialogOption`     | Set iOS options `(optional)`                     |
 
-## Android Rating Dialog Option
+### Android Rating Dialog Option
     
 | Property                 | Type                                  | Description                                         |
 | ------------------------ | ------------------------------------- | --------------------------------------------------- |
 | threshold                | `number`                              | Set threshold (number of rating) to trigger the feedback `(default is 2)`|
 | positiveButtonTextColor  | `string`                              | Set positive button text color `(optional)`         |
 | negativeButtonTextColor  | `string`                              | Set negative buttonText color `(optional)`          |
+| positiveButtonText       | `string`                              | Set positive button text                         |
+| negativeButtonText       | `string`                              | Set negative button text `(optional)`            |
 | ratingBarColor           | `string`                              | Set rating bar color `(optional)`                     |
 | ratingBarBackgroundColor | `string`                              | Set rating bar background color `(optional)`           |
 | playstoreUrl             | `string`                              | Set playstore url (to redirect user to the app on app store) `(optional)` |
 | feedbackForm             | `AndroidRatingDialogFeedbackForm`     | Set feedback form options `(optional)`                       |
-| onThresholdCleared       | `Callback Function`                   | Set onThresholdCleared callback which fired when your rating score is greater than the threshold. (override the default redirection to Google Play) `(optional)`                 |
-| onThresholdFailed        | `Callback Function`                   | Set onThresholdFailed callback which fired when your rating score is less than the threshold. (use when you want to show your custom feedback form) `(optional)`                  |
-| onRatingChanged          | `Callback Function`                   | Set onRatingChanged callback which fires when the rating changed `(optional)`                    |
-| onRatingBarFormSumbit    | `Callback Function`                   | Set onRatingBarFormSumbit callback which fires when the rating is submitted `(optional)`              |
+| onThresholdCleared (ratingDialog: any, rating: number, thresholdCleared: boolean)  | `Callback Function`                   | Set onThresholdCleared callback which fired when your rating score is greater than the threshold. (override the default redirection to Google Play) `(optional)`                 |
+| onThresholdFailed (ratingDialog: any, rating: number, thresholdCleared: boolean) | `Callback Function`                   | Set onThresholdFailed callback which fired when your rating score is less than the threshold. (use when you want to show your custom feedback form) `(optional)`                  |
+| onRatingChanged (rating: number, thresholdCleared: boolean)  | `Callback Function`                   | Set onRatingChanged callback which fires when the rating changed `(optional)`                    |
+| onRatingBarFormSumbit (feedback: string)   | `Callback Function`                   | Set onRatingBarFormSumbit callback which fires when the rating is submitted `(optional)`              |
     
 
-## Android RatingDialog Feedback Form
+### Android RatingDialog Feedback Form
     
 | Property            | Type                        | Description                           |
 | ------------------- | --------------------------- | ------------------------------------- |
@@ -72,9 +83,34 @@ Describe your plugin methods and properties here. See [nativescript-feedback](ht
 | feedBackTextColor   | `string`                    | Set feedBack text color `(optional)`  |
 
 
-## Future Works
+### iOS Rating Dialog Option
+    
+| Property                 | Type                                  | Description                                         |
+| ------------------------ | ------------------------------------- | --------------------------------------------------- |
+| subtitle                 | `number`                              | Set subtitle `(optional)` `(default is: "Please rate your experience")`                       |
+| onPositiveButtonColor    | `string`                              | Set positive button color `(optional)`              |
+| onNegativeButtonColor    | `string`                              | Set negative button color `(optional)`              |
+| onPositiveButtonText     | `string`                              | Set positive button text `(optional)`               |
+| onNegativeButtonText     | `string`                              | Set negative button text `(optional)`               |
+| positiveText             | `string`                              | Set positive text `(optional)` `(default is: "Awesome!")`                       |
+| negativeText             | `string`                              | Set negative text `(optional)` `(default is: "Darn. we should have been better.")`                      |
+| textColor                | `string`                              | Set tex color `(optional)`                          |
+| emptyStarImage           | `string`                              | Set name of the empty star image resource `(optional)`|
+| fullStarImage            | `string`                              | Set name of the full star image resource `(optional)` |
+| dismissButtonColor       | `string`                              | Set dismiss button color `(optional)`                 |
+| itunesId                 | `string`                              | Set itunesId `(optional)`                             |
+| onPositiveRate (rating: number) | `Callback Function`            | Set onPositiveRate callback which fires when the user chose more than 3 stars and click the rate `(optional)` |
+| onNegativeRate (rating: number) | `Callback Function`            | Set onNegativeRate callback which fires when the user chose less than 4 stars and click the rate `(optional)`|
+| onDismiss ()             | `Callback Function`                   | Set onDismiss callback which fires when the user dismissed that screen without choosing anything `(optional)` |
 
-- Add Rating Dialog For iPhone
+## Author
+
+Jonathan Mayunga, mayunga.j@gmail.com
+
+## Credits
+
+For Android we're using the [Smart App Rate by Codemy](https://github.com/comedybrainsout/smart-app-rate),
+and for iOS [MBRateApp by MatiBot](https://github.com/MatiBot/MBRateApp).
 
 ## License
 
