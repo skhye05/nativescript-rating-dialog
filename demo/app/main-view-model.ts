@@ -12,7 +12,6 @@ export class HelloWorldModel extends Observable {
   }
 
   public show(): void {
-
     const option: RatingDialogOption = {
       title: "Title",
       android: {
@@ -38,6 +37,5 @@ export class HelloWorldModel extends Observable {
     };
 
     this.ratingDialog.show(option);
-
   }
 }
