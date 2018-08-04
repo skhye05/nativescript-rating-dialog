@@ -94,7 +94,6 @@ export class RatingDialog {
             // Build Rating Dialog
             .build();
         this.ratingDialog = d;
-        
         // Show Dialog
         d.show();
     }
