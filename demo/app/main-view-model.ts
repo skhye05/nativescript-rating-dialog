@@ -8,20 +8,31 @@ export class HelloWorldModel extends Observable {
 
   constructor() {
     super();
-
     this.ratingDialog = new RatingDialog();
-    this.message = "this.ratingDialog.message";
   }
 
   public show(): void {
 
     const option: RatingDialogOption = {
-      title: "Moi",
-      positiveButtonText: "Done",
-      negativeButtonText: "LUI",
+      title: "Title",
       android: {
+        positiveButtonText: "Done",
+        negativeButtonText: "Cancel",
         onThresholdCleared: (dialog, rating, thresholdCleared) => {
           console.log(rating);
+        }
+      },
+      ios: {
+        onPositiveButtonText: "Done",
+        onNegativeButtonText: "Send Feedback",
+        onPositiveRate: (rating) => {
+          console.log('Positive', rating);
+        },
+        onNegativeRate: (rating) => {
+          console.log('Negative', rating);
+        },
+        onDismiss: () => {
+          console.log('Dismiss');
         }
       }
     };
