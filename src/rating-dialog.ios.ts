@@ -25,16 +25,16 @@ export class RatingDialog {
         }
 
         if (options.textColor) {
-            this.RateUS.setTextColor(new Color(options.textColor).ios)
+            this.RateUS.setTextColor(new Color(options.textColor).ios);
         }
 
         if (options.backgroundColor) {
-            this.RateUS.setBackgroundColor(new Color(options.backgroundColor).ios)
+            this.RateUS.setBackgroundColor(new Color(options.backgroundColor).ios);
         }
 
         if (options.ios) {
             if (options.ios.subtitle) {
-                this.RateUS.setSubtitle()
+                this.RateUS.setSubtitle(options.ios.subtitle);
             }
 
             if (options.ios.onPositiveButtonColor) {
@@ -96,4 +96,4 @@ export class RatingDialog {
 const rootVC = function () {
     let appwindow = UIApplication.sharedApplication.keyWindow;
     return appwindow.rootViewController;
-}
+};
