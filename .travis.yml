@@ -19,7 +19,7 @@ matrix:
       env:
         - WebPack="Android"
       jdk: oraclejdk8
-      before_install: nvm install stable
+      before_install: nvm install 6.10.3
       script: cd demo && npm run build.plugin && npm i && tns build android --bundle --env.uglify --env.snapshot
     - language: android
       env: 
@@ -49,7 +49,7 @@ matrix:
         - emulator -avd test -no-audio -no-window &
         - android-wait-for-emulator
       before_install:
-        - nvm install stable
+        - nvm install 6
       script: cd src && npm run test.android
     - os: osx
       language: node_js
