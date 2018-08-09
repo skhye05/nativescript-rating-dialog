@@ -1,5 +1,10 @@
 # Nativescript Rating Dialog
 
+[![Build Status][build-status]][build-url]
+
+[build-status]:https://travis-ci.org/skhye05/nativescript-rating-dialog.svg?branch=master
+[build-url]:https://travis-ci.org/skhye05/nativescript-rating-dialog
+
 ## Installation
 
 ```javascript
