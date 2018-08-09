@@ -5,10 +5,9 @@
 [build-status]:https://travis-ci.org/skhye05/nativescript-rating-dialog.svg?branch=master
 [build-url]:https://travis-ci.org/skhye05/nativescript-rating-dialog
 
+<img src="https://raw.githubusercontent.com/skhye05/NativeScript-Rating-Dialog/master/ios.gif" width="350">
 
-![Screenshot of iOS](https://raw.githubusercontent.com/skhye05/NativeScript-Rating-Dialog/master/ios.gif =250x700)
-
-![Screenshot of Android](https://raw.githubusercontent.com/skhye05/NativeScript-Rating-Dialog/master/android.gif)
+<img src="https://raw.githubusercontent.com/skhye05/NativeScript-Rating-Dialog/master/android.gif" width="350">
 
 ## Installation
 
