@@ -23,6 +23,7 @@ install:
     - tns error-reporting disable
     - npm install
     - cd src
+    - npm run clean
     - npm run setup
 
 script:
