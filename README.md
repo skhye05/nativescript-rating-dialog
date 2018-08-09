@@ -6,7 +6,9 @@
 [build-url]:https://travis-ci.org/skhye05/nativescript-rating-dialog
 
 
-![Screenshot of iOS and Android](https://raw.githubusercontent.com/skhye05/NativeScript-Rating-Dialog/master/android.gif)
+![Screenshot of iOS](https://raw.githubusercontent.com/skhye05/NativeScript-Rating-Dialog/master/ios.gif)
+
+![Screenshot of Android](https://raw.githubusercontent.com/skhye05/NativeScript-Rating-Dialog/master/android.gif)
 
 ## Installation
 
