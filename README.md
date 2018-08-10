@@ -124,7 +124,7 @@ Jonathan Mayunga, mayunga.j@gmail.com
 
 ## Credits
 
-For Android we're using the [Smart App Rate by Codemy](https://github.com/comedybrainsout/smart-app-rate),
+For Android we're using the [Smart App Rate by Codemy](https://github.com/codemybrainsout/smart-app-rate),
 and for iOS [MBRateApp by MatiBot](https://github.com/MatiBot/MBRateApp).
 
 ## License
