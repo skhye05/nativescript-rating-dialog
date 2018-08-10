@@ -17,6 +17,15 @@ export class RatingDialog {
 
     public show(options: RatingDialogOption): void {
 
+        let icon;
+
+        if (options.icon) {
+            let id = utils.ad.resources.getDrawableId(options.icon);
+            icon = application.android.foregroundActivity.getResources().getDrawable(id);
+        } else {
+            icon = null;
+        }
+
         const d = new com.eljo.skhye05.ratingdialog.RatingDialog.Builder(application.android.foregroundActivity)
             // Set Title
             .title(options.title)
@@ -37,7 +46,7 @@ export class RatingDialog {
             .negativeButtonTextColor(options.android ? options.android.positiveButtonTextColor ? new Color(options.android.negativeButtonTextColor).android : 0 : 0)
 
             // Set Icon if exist
-            .icon(options.icon ? utils.ad.resources.getDrawableId(options.icon) : null)
+            .icon(icon)
 
             .threshold(options.android ? options.android.threshold ? options.android.threshold : 2 : 2)
 

@@ -1,6 +1,7 @@
 import { Observable } from 'tns-core-modules/data/observable';
 import { RatingDialog } from 'nativescript-rating-dialog';
 import { RatingDialogOption } from 'nativescript-rating-dialog';
+import * as  dialogs from 'tns-core-modules/ui/dialogs';
 
 export class HelloWorldModel extends Observable {
   public message: string;
@@ -14,12 +15,35 @@ export class HelloWorldModel extends Observable {
   public show(): void {
     const option: RatingDialogOption = {
       title: "Title",
-      icon: 'favorite',
+      icon: "favorite",
       android: {
-        positiveButtonText: "Done",
-        negativeButtonText: "Cancel",
+        positiveButtonText: "Maybe Later",
+        negativeButtonText: "Never",
+        threshold: 3,
         onThresholdCleared: (dialog, rating, thresholdCleared) => {
-          console.log(rating);
+          setTimeout(() => {
+            dialogs.alert({
+              title: "Rating Info",
+              message: `Positive Rate of ${rating} out of 5`,
+              okButtonText: "Close"
+            }).then(function () {
+              dialog.dismiss();
+            });
+          }, 1500);
+          console.log('Positive: ', rating);
+        },
+        onThresholdFailed: (dialog, rating) => {
+          setTimeout(() => {
+            dialogs.alert({
+              title: "Rating Info",
+              message: `Negative Rate of ${rating} out of 5`,
+              okButtonText: "Close"
+            }).then(function () {
+              dialog.dismiss();
+            });
+          }, 1500);
+          console.log('Negative: ', rating);
+          // dialog.dismiss();
         }
       },
       ios: {
