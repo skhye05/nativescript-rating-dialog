@@ -24,11 +24,17 @@ let ratingDialog = new RatingDialog();
 
 const option: RatingDialogOption = {
     title: "Title",
+    icon: "favorite",
     android: {
-        positiveButtonText: "Done",
-        negativeButtonText: "Cancel",
+        positiveButtonText: "Maybe Later",
+        negativeButtonText: "Never",
         onThresholdCleared: (dialog, rating, thresholdCleared) => {
-          console.log(rating);
+          alert(`Positive Rate of ${rating} out of 5`);
+          console.log('Positive', rating);
+        },
+        onThresholdFailed: (dialog, rating) => {
+          alert(`Negative Rate of ${rating} out of 5`);
+          console.log('Negative', rating);
         }
     },
     ios: {
