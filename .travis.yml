@@ -22,7 +22,7 @@ install:
     - tns error-reporting disable
     - npm install
     - cd src
-    - npm install
+    - npm run setup
 
 script:
 
@@ -33,7 +33,7 @@ matrix:
       language: node_js
       os: linux
       node_js: "8"
-      script: npm run ci.tslint && cd ../demo-angular && npm run ci.tslint
+      script: "npm run ci.tslint" 
     - stage: "WebPack"
       os: osx
       env:
