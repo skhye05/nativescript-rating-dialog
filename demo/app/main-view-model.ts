@@ -17,33 +17,21 @@ export class HelloWorldModel extends Observable {
       title: "Title",
       icon: "favorite",
       android: {
-        positiveButtonText: "Maybe Later",
-        negativeButtonText: "Never",
+        positiveButtonText: "Send",
+        negativeButtonText: "Cancel",
         threshold: 3,
         onThresholdCleared: (dialog, rating, thresholdCleared) => {
-          setTimeout(() => {
-            dialogs.alert({
-              title: "Rating Info",
-              message: `Positive Rate of ${rating} out of 5`,
-              okButtonText: "Close"
-            }).then(function () {
-              dialog.dismiss();
-            });
-          }, 1500);
-          console.log('Positive: ', rating);
         },
         onThresholdFailed: (dialog, rating) => {
-          setTimeout(() => {
-            dialogs.alert({
-              title: "Rating Info",
-              message: `Negative Rate of ${rating} out of 5`,
-              okButtonText: "Close"
-            }).then(function () {
-              dialog.dismiss();
-            });
-          }, 1500);
-          console.log('Negative: ', rating);
-          // dialog.dismiss();
+        },
+        onDialogDismiss: (rating) => {
+          if (rating < 3) {
+            console.log(`Negative Rate of ${rating} out of 5`);
+            alert(`Negative Rate of ${rating} out of 5`);
+          } else {
+            alert(`Positive Rate of ${rating} out of 5`);
+            console.log(`Positive Rate of ${rating} out of 5`);
+          }
         }
       },
       ios: {

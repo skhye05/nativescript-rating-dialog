@@ -20,7 +20,8 @@
         "noFallthroughCasesInSwitch": true
     },
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "platforms"
     ],
     "compileOnSave": false
 }

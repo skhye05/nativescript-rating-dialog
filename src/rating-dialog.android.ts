@@ -103,6 +103,17 @@ export class RatingDialog {
             // Build Rating Dialog
             .build();
         this.ratingDialog = d;
+
+        // set onDismiss
+
+        d.setOnDismissListener(new android.content.DialogInterface.OnDismissListener({
+            onDismiss: (dialog) => {
+                let rating: number = d.getRatingBarView().getRating();
+                setTimeout(() => {
+                    options.android.onDialogDismiss(rating);
+                }, 500);
+            }
+        }));
         // Show Dialog
         d.show();
     }

@@ -46,6 +46,8 @@ export declare interface AndroidRatingDialogOption {
 
   feedbackForm?: AndroidRatingDialogFeedbackForm;
 
+  onDialogDismiss?: (rating) => void;
+
   onThresholdCleared?: (ratingDialog: any, rating: number, thresholdCleared: boolean) => void;
 
   onThresholdFailed?: (ratingDialog: any, rating: number, thresholdCleared: boolean) => void;
