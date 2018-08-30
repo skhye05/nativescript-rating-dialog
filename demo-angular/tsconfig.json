@@ -11,6 +11,9 @@
             "dom",
             "es2015.iterable"
         ],
+        "typeRoots": [
+            "../node_modules/@types"
+        ],
         "baseUrl": ".",
         "paths": {
             "~/*": [
@@ -22,7 +25,12 @@
             ]
         }
     },
+    "include": [
+        "../src",
+        "**/*"
+    ],
     "exclude": [
+        "../src/node_modules",
         "node_modules",
         "platforms"
     ]
