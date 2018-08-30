@@ -23,7 +23,6 @@ install:
     - npm install
     - cd src
     - npm install
-    - npm run setup
 
 script:
 
