@@ -85,7 +85,7 @@ ratingDialog.show(option);
 | onThresholdFailed (ratingDialog: any, rating: number, thresholdCleared: boolean) | `Callback Function`                   | Set onThresholdFailed callback which fired when your rating score is less than the threshold. (use when you want to show your custom feedback form) `(optional)`                  |
 | onRatingChanged (rating: number, thresholdCleared: boolean)  | `Callback Function`                   | Set onRatingChanged callback which fires when the rating changed `(optional)`                    |
 | onRatingBarFormSumbit (feedback: string)   | `Callback Function`                   | Set onRatingBarFormSumbit callback which fires when the rating is submitted `(optional)`              |
-    
+| onDialogDismiss(rating: number)             | `Callback Function`                   | Set onDialogDismiss callback which fires when the user dismissed the dialog `(optional)` | 
 
 ### Android RatingDialog Feedback Form
     
