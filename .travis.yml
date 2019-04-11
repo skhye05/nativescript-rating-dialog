@@ -1,32 +1,10 @@
-android:
-  components:
-    - tools
-    - platform-tools
-    - build-tools-27.0.3
-    - android-27
-    - extra-android-m2repository
-    - sys-img-armeabi-v7a-android-21
+git:
+  depth: 1
 
-before_cache:
-    - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock 
-
-cache:
-    directories:
-        - .nvm
-        - $HOME/.gradle/caches/
-        - $HOME/.gradle/wrapper/
-
-install:
-    - echo no | npm install -g nativescript
-    - tns usage-reporting disable
-    - tns error-reporting disable
-    - npm install
-    - cd src
-    - npm run setup
-
-script:
-
-
+branches:
+  only: 
+    - master
+    
 matrix:
   include:
     - stage: "Lint"
@@ -69,3 +47,32 @@ matrix:
       jdk: oraclejdk8
       script: 
         - cd ../demo && tns build ios
+
+android:
+  components:
+    - tools
+    - platform-tools
+    - build-tools-28.0.3
+    - android-28
+    - android-23
+    - extra-android-m2repository
+
+before_cache:
+    - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+
+cache:
+    directories:
+        - .nvm
+        - $HOME/.gradle/caches/
+        - $HOME/.gradle/wrapper/
+        
+before_install:
+    - sudo pip install --upgrade pip
+    - sudo pip install six
+
+install:
+    - echo no | npm install -g nativescript
+    - tns usage-reporting disable
+    - tns error-reporting disable - npm install
+    - cd src
+    - npm run setup
